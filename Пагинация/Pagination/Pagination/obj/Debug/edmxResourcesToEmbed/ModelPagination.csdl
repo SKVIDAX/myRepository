@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Koroleva_1_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PAGINATION_GENDERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PAGINATION_USERS" Relationship="Self.FK_PAGINATION_USERS_PAGINATION_GENDERS" FromRole="PAGINATION_GENDERS" ToRole="PAGINATION_USERS" />
+  </EntityType>
+  <EntityType Name="PAGINATION_USERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="Binary" MaxLength="100" FixedLength="false" Nullable="false" />
+    <Property Name="genderId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PAGINATION_GENDERS" Relationship="Self.FK_PAGINATION_USERS_PAGINATION_GENDERS" FromRole="PAGINATION_USERS" ToRole="PAGINATION_GENDERS" />
+  </EntityType>
+  <Association Name="FK_PAGINATION_USERS_PAGINATION_GENDERS">
+    <End Role="PAGINATION_GENDERS" Type="Self.PAGINATION_GENDERS" Multiplicity="1" />
+    <End Role="PAGINATION_USERS" Type="Self.PAGINATION_USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAGINATION_GENDERS">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PAGINATION_USERS">
+        <PropertyRef Name="genderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Koroleva_1_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PAGINATION_GENDERS" EntityType="Self.PAGINATION_GENDERS" />
+    <EntitySet Name="PAGINATION_USERS" EntityType="Self.PAGINATION_USERS" />
+    <AssociationSet Name="FK_PAGINATION_USERS_PAGINATION_GENDERS" Association="Self.FK_PAGINATION_USERS_PAGINATION_GENDERS">
+      <End Role="PAGINATION_GENDERS" EntitySet="PAGINATION_GENDERS" />
+      <End Role="PAGINATION_USERS" EntitySet="PAGINATION_USERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

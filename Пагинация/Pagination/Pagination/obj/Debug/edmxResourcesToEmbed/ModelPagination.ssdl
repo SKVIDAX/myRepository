@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Koroleva_1_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PAGINATION_GENDERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGINATION_USERS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="image" Type="varbinary" MaxLength="100" Nullable="false" />
+    <Property Name="genderId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PAGINATION_USERS_PAGINATION_GENDERS">
+    <End Role="PAGINATION_GENDERS" Type="Self.PAGINATION_GENDERS" Multiplicity="1" />
+    <End Role="PAGINATION_USERS" Type="Self.PAGINATION_USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAGINATION_GENDERS">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PAGINATION_USERS">
+        <PropertyRef Name="genderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Koroleva_1_dbModelStoreContainer">
+    <EntitySet Name="PAGINATION_GENDERS" EntityType="Self.PAGINATION_GENDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAGINATION_USERS" EntityType="Self.PAGINATION_USERS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PAGINATION_USERS_PAGINATION_GENDERS" Association="Self.FK_PAGINATION_USERS_PAGINATION_GENDERS">
+      <End Role="PAGINATION_GENDERS" EntitySet="PAGINATION_GENDERS" />
+      <End Role="PAGINATION_USERS" EntitySet="PAGINATION_USERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,8 @@
+D:\!!!ИС1-43\API_Test\API_Test\bin\Debug\API_Test.exe.config
+D:\!!!ИС1-43\API_Test\API_Test\bin\Debug\API_Test.exe
+D:\!!!ИС1-43\API_Test\API_Test\bin\Debug\API_Test.pdb
+D:\!!!ИС1-43\API_Test\API_Test\obj\Debug\API_Test.csproj.AssemblyReference.cache
+D:\!!!ИС1-43\API_Test\API_Test\obj\Debug\API_Test.csproj.SuggestedBindingRedirects.cache
+D:\!!!ИС1-43\API_Test\API_Test\obj\Debug\API_Test.csproj.CoreCompileInputs.cache
+D:\!!!ИС1-43\API_Test\API_Test\obj\Debug\API_Test.exe
+D:\!!!ИС1-43\API_Test\API_Test\obj\Debug\API_Test.pdb

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Koroleva_1_dbModelStoreContainer" CdmEntityContainer="Koroleva_1_dbEntities">
+    <EntitySetMapping Name="PAGINATION_GENDERS">
+      <EntityTypeMapping TypeName="Koroleva_1_dbModel.PAGINATION_GENDERS">
+        <MappingFragment StoreEntitySet="PAGINATION_GENDERS">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGINATION_USERS">
+      <EntityTypeMapping TypeName="Koroleva_1_dbModel.PAGINATION_USERS">
+        <MappingFragment StoreEntitySet="PAGINATION_USERS">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="genderId" ColumnName="genderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
